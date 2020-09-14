@@ -17,5 +17,13 @@ public:
     ~Widget();
 
     void resizeEvent(QResizeEvent*);
+    void mouseMoveEvent(QMouseEvent*);
+    void mousePressEvent(QMouseEvent *event);
+    void Delay_MSec_Suspend(unsigned int msec);
+    int _cnt;
+public slots:
+    void add();
+
+
 };
 #endif // WIDGET_H
