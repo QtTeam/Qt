@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2020-09-14T00:24:22. -->
+<!-- Written by QtCreator 4.11.1, 2020-09-16T00:06:55. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -282,8 +282,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/QT/QTproject/Circuit_Showing/Circuit_Showing.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/QT/QTproject/Circuit_Showing/Circuit_Showing.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Circuit_Showing2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/应用系统实习/Qt/林翔宇/Circuit_Showing/Circuit_Showing.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/应用系统实习/Qt/林翔宇/Circuit_Showing/Circuit_Showing.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
