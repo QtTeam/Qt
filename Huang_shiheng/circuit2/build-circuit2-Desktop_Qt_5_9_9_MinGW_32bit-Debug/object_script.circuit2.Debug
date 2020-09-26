@@ -1,0 +1,16 @@
+INPUT(
+./debug\circle.o
+./debug\diode.o
+./debug\grand.o
+./debug\incident.o
+./debug\inductance.o
+./debug\ledx.o
+./debug\main.o
+./debug\mywidget.o
+./debug\oscilloscope.o
+./debug\pow.o
+./debug\switchx.o
+./debug\timex.o
+./debug\moc_mywidget.o
+./debug\moc_timex.o
+);
