@@ -11,6 +11,7 @@ public:
     int width(){return wide;}
     int high(){return height;}
 
+
 private:
     int wide;
     int height;
