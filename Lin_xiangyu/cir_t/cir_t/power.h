@@ -36,7 +36,7 @@ private:
     bool flag = false;
     int cnt = 0;
     QColor color;
-    float currentsize;
+    float currentsize = 5;
 public slots:
     void receiveTime();
     void receiveTimeS();

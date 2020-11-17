@@ -32,6 +32,8 @@ public:
     int getState();
     void setState();
     void setcurrentsize(float size){currentsize = size;}//设置电流大小
+    void setdrection(bool d){drec = d;}
+    void turn(){turnflag = !turnflag;}
 private:
     int wide;
     int height;
@@ -39,7 +41,10 @@ private:
     QColor color;
     bool flag = false;
     int cnt = 0;
-    float currentsize;//表示电流大小
+    float currentsize = 5;//表示电流大小
+    bool drec = 1;//电流方向，1为正向
+    bool turnflag = 1;//器件是否竖直摆放，1为水平摆放
+    bool textflag = 0;//是否显示提示文字，鼠标进入时置1
 signals:
     void timeStart();
     void timeStop();

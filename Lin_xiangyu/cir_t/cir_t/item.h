@@ -29,7 +29,7 @@ private:
     int wide;
     int height;
     QString color;
-    float currentsize;
+    float currentsize = 5;
 };
 
 #endif // ITEM_H

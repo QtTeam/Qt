@@ -35,7 +35,7 @@ private:
     int height;
     int state = 0;
     QColor color;
-    float currentsize;
+    float currentsize = 5;
 };
 
 #endif // OP_H

@@ -24,13 +24,23 @@ Widget::Widget(QWidget *parent)
     _Scene->addItem(it3);
     it3->setPos(400,200);
 
+    LED *led = new LED(100,100,"yellow");
+    _Scene->addItem(led);
+    led->turn();
+    led->setPos(400,400);
+
     IND *it4 = new IND(100,100,"purple");
     _Scene->addItem(it4);
     it4->setPos(500,200);
 
     SW *it5 = new SW(100,100,"green");
     _Scene->addItem(it5);
+    it5->turn();
     it5->setPos(600,200);
+
+    SW *sw = new SW(100,100,"green");
+    _Scene->addItem(sw);
+    sw->setPos(600,400);
 
     DIODE *it6 = new DIODE(100,100,"green");
     _Scene->addItem(it6);
@@ -50,10 +60,9 @@ Widget::Widget(QWidget *parent)
 
     timer = new QTimer();
     connect(timer,&QTimer::timeout,[=](){
-        qDebug() << "hello" << endl;
         emit sendTime();
     });
-    //设置全局电流
+    //设置全局电流大小
     curSize = 10;
     it1->setcurrentsize(curSize);
     it2->setcurrentsize(curSize);
@@ -64,6 +73,10 @@ Widget::Widget(QWidget *parent)
     it7->setcurrentsize(curSize);
     it8->setcurrentsize(curSize);
 
+    //设置电流方向
+    it5->setdrection(1);
+
+    //绑定时间驱动
     connect(timer,SIGNAL(timeout()),it1,SLOT(receiveTime()));
     connect(timer,SIGNAL(timeout()),it2,SLOT(receiveTime()));
     connect(timer,SIGNAL(timeout()),it3,SLOT(receiveTime()));
@@ -71,7 +84,9 @@ Widget::Widget(QWidget *parent)
     connect(timer,SIGNAL(timeout()),it5,SLOT(receiveTime()));
     connect(timer,SIGNAL(timeout()),it6,SLOT(receiveTime()));
     connect(timer,SIGNAL(timeout()),it8,SLOT(receiveTime()));
-
+    connect(timer,SIGNAL(timeout()),sw,SLOT(receiveTime()));
+    connect(timer,SIGNAL(timeout()),led,SLOT(receiveTime()));
+    //绑定时间停止信号
     connect(it5,SIGNAL(timeStop()),it1,SLOT(receiveTimeS()));
     connect(it5,SIGNAL(timeStop()),it2,SLOT(receiveTimeS()));
     connect(it5,SIGNAL(timeStop()),it3,SLOT(receiveTimeS()));
@@ -80,6 +95,8 @@ Widget::Widget(QWidget *parent)
     connect(it5,SIGNAL(timeStop()),it6,SLOT(receiveTimeS()));
     connect(it5,SIGNAL(timeStop()),it7,SLOT(receiveTimeS()));
     connect(it5,SIGNAL(timeStop()),it8,SLOT(receiveTimeS()));
+    connect(it5,SIGNAL(timeStop()),sw,SLOT(receiveTimeS()));
+    connect(it5,SIGNAL(timeStop()),led,SLOT(receiveTimeS()));
 }
 
 Widget::~Widget()
