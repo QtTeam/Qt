@@ -10,13 +10,24 @@ QRectF LED::boundingRect() const{
 }
 
 void LED::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *){
+        painter->setPen(QPen(color,3));
     if(turnflag){
         if(light_flag){
-            QBrush *brush = new QBrush(QColor(255,255,0));
-            brush->setStyle(Qt::SolidPattern);
-            painter->setBrush(*brush);
-        }
 
+
+            QBrush *brush = new QBrush(QColor(255,255,0,255));
+            brush->setStyle(Qt::SolidPattern);
+
+            brush->setColor(QColor(255,255,0,100));
+            painter->setBrush(*brush);
+            painter->drawEllipse(QPoint(50,50),5,5);
+
+//            brush->setColor(QColor(255,255,0,255));
+//            painter->setBrush(*brush);
+//            painter->drawEllipse(QPoint(50,50),20,20);
+
+
+        }
         painter->drawEllipse(20,20,60,60);
         painter->setPen(QPen(color,5));
         painter->drawLine(0,50,20,50);
@@ -72,7 +83,7 @@ void LED::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *){
     }
     else{
         if(light_flag){
-            QBrush *brush = new QBrush(QColor(255,255,0));
+            QBrush *brush = new QBrush(QColor(255,255,0,100));
             brush->setStyle(Qt::SolidPattern);
             painter->setBrush(*brush);
         }
@@ -153,11 +164,20 @@ void LED::eventStart(){
 
 }
 void LED::receiveTime(){
-    ++cnt;
-    flag = true;
-    if(cnt == 5) cnt = 0;
-    light_flag = 1;
-    update();
+    if(drec){
+        ++cnt;
+        flag = true;
+        if(cnt == 5) cnt = 0;
+        light_flag = 1;
+        update();
+    }
+    else {
+        --cnt;
+        flag = true;
+        if(cnt == -1) cnt = 4;
+        light_flag = 1;
+        update();
+    }
 }
 void LED::receiveTimeS(){
     flag = false;

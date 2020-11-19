@@ -31,6 +31,7 @@ public:
     void changeState();
     void setcurrentsize(float size){currentsize = size;}//设置电流大小
     void turn(){turnflag = !turnflag;}
+    void setdrection(bool d){drec = d;}
 private:
     int wide;
     int height;
@@ -40,6 +41,7 @@ private:
     int cnt = 0;
     float currentsize = 5;
     bool turnflag = 1;
+    bool drec = 1;
 public slots:
     void receiveTime();
     void receiveTimeS();

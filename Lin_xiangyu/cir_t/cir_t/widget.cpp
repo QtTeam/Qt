@@ -35,6 +35,7 @@ Widget::Widget(QWidget *parent)
 
     IND *it4 = new IND(100,100,"purple");
     _Scene->addItem(it4);
+    it4->turn();
     it4->setPos(500,200);
 
     SW *it5 = new SW(100,100,"green");
@@ -49,6 +50,7 @@ Widget::Widget(QWidget *parent)
 
     DIODE *it6 = new DIODE(100,100,"green");
     _Scene->addItem(it6);
+    it6->turn();
     it6->setPos(700,200);
 
     OP *it7 = new OP(100,100,"green");

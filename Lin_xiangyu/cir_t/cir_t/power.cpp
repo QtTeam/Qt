@@ -13,7 +13,6 @@ QRectF POWER::boundingRect() const{
 void POWER::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *){
     painter->setBrush(QBrush(QColor(color)));
 
-
     painter->setPen(QPen(color,5));
     painter->drawLine(50,0,50,15);
     painter->drawLine(50,85,50,100);
@@ -92,10 +91,18 @@ void POWER::eventStart(){
 }
 
 void POWER::receiveTime(){
-    ++cnt;
-    flag = true;
-    if(cnt == 5) cnt = 0;
-    update();
+    if(drec){
+        ++cnt;
+        flag = true;
+        if(cnt == 5) cnt = 0;
+        update();
+    }
+    else {
+        --cnt;
+        flag = true;
+        if(cnt == -1) cnt = 4;
+        update();
+    }
 }
 void POWER::receiveTimeS(){
     flag = false;

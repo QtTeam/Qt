@@ -140,10 +140,18 @@ void CAP::eventStart(){
 
 }
 void CAP::receiveTime(){
-    ++cnt;
-    flag = true;
-    if(cnt == 5) cnt = 0;
-    update();
+    if(drec){
+        ++cnt;
+        flag = true;
+        if(cnt == 5) cnt = 0;
+        update();
+    }
+    else {
+        --cnt;
+        flag = true;
+        if(cnt == -1) cnt = 4;
+        update();
+    }
 }
 
 void CAP::receiveTimeS(){
