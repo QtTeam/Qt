@@ -30,6 +30,7 @@ public:
     virtual void eventStart();
     void changeState();
     void setcurrentsize(float size){currentsize = size;}//设置电流大小
+    void turn(){turnflag = !turnflag;}
 private:
     int wide;
     int height;
@@ -38,6 +39,7 @@ private:
     bool flag = false;
     int cnt = 0;
     float currentsize = 5;
+    bool turnflag = 1;
 public slots:
     void receiveTime();
     void receiveTimeS();

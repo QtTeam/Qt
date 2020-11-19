@@ -30,12 +30,14 @@ public:
     virtual void eventStart();
     void changeState();
     void setcurrentsize(float size){currentsize = size;}//设置电流大小
+    void turn(){turnflag = !turnflag;}
 private:
     int wide;
     int height;
     int state = 0;
     QColor color;
     float currentsize = 5;
+    bool turnflag = 1;
 };
 
 #endif // OP_H

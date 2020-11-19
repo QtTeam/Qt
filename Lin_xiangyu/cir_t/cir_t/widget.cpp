@@ -13,10 +13,14 @@ Widget::Widget(QWidget *parent)
     _Scene->setSceneRect(0,0,2000,2000);//解决view,scene坐标不匹配
     resize(1200,700);
     RES *it1 = new RES(100,100,"red");
+    it1->setdrection(0);
     _Scene->addItem(it1);
+
     it1->setPos(200,200);
 
     CAP *it2 = new CAP(100,100,"green");
+    it2->turn();
+
     _Scene->addItem(it2);
     it2->setPos(300,200);
 
@@ -40,6 +44,7 @@ Widget::Widget(QWidget *parent)
 
     SW *sw = new SW(100,100,"green");
     _Scene->addItem(sw);
+    sw->setdrection(0);
     sw->setPos(600,400);
 
     DIODE *it6 = new DIODE(100,100,"green");
